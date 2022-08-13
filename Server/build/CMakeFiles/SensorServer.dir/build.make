@@ -73,15 +73,15 @@ CMakeFiles/SensorServer.dir/src/SensorServer.cpp.o: CMakeFiles/SensorServer.dir/
 CMakeFiles/SensorServer.dir/src/SensorServer.cpp.o: ../src/SensorServer.cpp
 CMakeFiles/SensorServer.dir/src/SensorServer.cpp.o: CMakeFiles/SensorServer.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oguz/sensor_data_fusion/sensor_data_fusion/Server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SensorServer.dir/src/SensorServer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SensorServer.dir/src/SensorServer.cpp.o -MF CMakeFiles/SensorServer.dir/src/SensorServer.cpp.o.d -o CMakeFiles/SensorServer.dir/src/SensorServer.cpp.o -c /home/oguz/sensor_data_fusion/sensor_data_fusion/Server/src/SensorServer.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SensorServer.dir/src/SensorServer.cpp.o -MF CMakeFiles/SensorServer.dir/src/SensorServer.cpp.o.d -o CMakeFiles/SensorServer.dir/src/SensorServer.cpp.o -c /home/oguz/sensor_data_fusion/sensor_data_fusion/Server/src/SensorServer.cpp
 
 CMakeFiles/SensorServer.dir/src/SensorServer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SensorServer.dir/src/SensorServer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oguz/sensor_data_fusion/sensor_data_fusion/Server/src/SensorServer.cpp > CMakeFiles/SensorServer.dir/src/SensorServer.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oguz/sensor_data_fusion/sensor_data_fusion/Server/src/SensorServer.cpp > CMakeFiles/SensorServer.dir/src/SensorServer.cpp.i
 
 CMakeFiles/SensorServer.dir/src/SensorServer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SensorServer.dir/src/SensorServer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oguz/sensor_data_fusion/sensor_data_fusion/Server/src/SensorServer.cpp -o CMakeFiles/SensorServer.dir/src/SensorServer.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oguz/sensor_data_fusion/sensor_data_fusion/Server/src/SensorServer.cpp -o CMakeFiles/SensorServer.dir/src/SensorServer.cpp.s
 
 # Object files for target SensorServer
 SensorServer_OBJECTS = \

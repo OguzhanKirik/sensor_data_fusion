@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/ObjectFusion.dir/src/main.cpp.o CMakeFiles/ObjectFusion.dir/src/JSONFileLogger.cpp.o -o ObjectFusion 

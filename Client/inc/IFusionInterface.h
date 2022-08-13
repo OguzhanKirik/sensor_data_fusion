@@ -4,7 +4,9 @@
 #include "JSONFileLogger.h"
 class IFusionInterface {
 public:
-  IFusionInterface() : _currentObjectId(0), _logger(LOG_FILE_NAME) {}
+  IFusionInterface() : _currentObjectId(0)
+  //,_logger(LOG_FILE_NAME) 
+   {}
 
   // Do the whole magic here, i.e.,
   // prediction, association, update
@@ -35,7 +37,7 @@ protected:
 
   ObjectList _objectList;    // object database
   uint16_t _currentObjectId; // use this one to create new object id's
-  JSONFileLogger _logger;    // write the fusion result to file
+  //JSONFileLogger _logger;    // write the fusion result to file
 };
 
 #endif

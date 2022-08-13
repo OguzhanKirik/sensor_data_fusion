@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/oguz/sensor_data_fusion/sensor_data_fusion/Server/build",
+  "command": "/usr/bin/g++  -I/home/oguz/sensor_data_fusion/sensor_data_fusion/Server/../inc -g -std=gnu++11 -o CMakeFiles/SensorServer.dir/src/SensorServer.cpp.o -c /home/oguz/sensor_data_fusion/sensor_data_fusion/Server/src/SensorServer.cpp",
+  "file": "/home/oguz/sensor_data_fusion/sensor_data_fusion/Server/src/SensorServer.cpp"
+}
+]

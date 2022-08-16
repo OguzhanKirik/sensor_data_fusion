@@ -30,15 +30,17 @@
     }
       /// Get the current object list from the sensor
     bool Sensor::getNextObjectList (SensorObjectList &objectList){
+
+          
+          
           char objectsReceivedMsg[OBJECTS_RECEIVED_MSG_SIZE];
           this->objectReceived = recv(client, (char *)&objectList, OBJECTS_RECEIVED_MSG_SIZE, 0);
           // read time stamps and valid objects from the objectReceivedMsg
           // for (size_t i = 0; i < OBJECTS_RECEIVED_MSG_SIZE; i++){
           //   std::cout <<objectList.objectList->vx << std::endl;
           // }
-          
-          objectList.numOfValidObjects;
-          objectList.timestamp;
+   
+      
           return true;
     }
     bool Sensor::confirmObjectsReceived(){

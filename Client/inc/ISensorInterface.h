@@ -39,6 +39,7 @@ class Sensor : public ISensorInterface{
       int client;
       static sockaddr_in server_addr;
       int objectReceived;
+      
   public:
     Sensor();
     ~Sensor();

@@ -184,7 +184,8 @@ CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.o: ../src/IFusionInterface.
   /usr/include/c++/9/bits/stl_uninitialized.h \
   /usr/include/c++/9/bits/stl_vector.h \
   /usr/include/c++/9/bits/stl_bvector.h \
-  /usr/include/c++/9/bits/vector.tcc
+  /usr/include/c++/9/bits/vector.tcc \
+  /usr/include/c++/9/iostream
 
 CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.o: ../src/ISensorInterface.cpp \
   /usr/include/stdc-predef.h \

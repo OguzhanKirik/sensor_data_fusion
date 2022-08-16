@@ -97,19 +97,51 @@ CMakeFiles/ObjectFusion.dir/src/JSONFileLogger.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ObjectFusion.dir/src/JSONFileLogger.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oguz/sensor_data_fusion/sensor_data_fusion/Client/src/JSONFileLogger.cpp -o CMakeFiles/ObjectFusion.dir/src/JSONFileLogger.cpp.s
 
+CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.o: CMakeFiles/ObjectFusion.dir/flags.make
+CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.o: ../src/ISensorInterface.cpp
+CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.o: CMakeFiles/ObjectFusion.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oguz/sensor_data_fusion/sensor_data_fusion/Client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.o -MF CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.o.d -o CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.o -c /home/oguz/sensor_data_fusion/sensor_data_fusion/Client/src/ISensorInterface.cpp
+
+CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oguz/sensor_data_fusion/sensor_data_fusion/Client/src/ISensorInterface.cpp > CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.i
+
+CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oguz/sensor_data_fusion/sensor_data_fusion/Client/src/ISensorInterface.cpp -o CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.s
+
+CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.o: CMakeFiles/ObjectFusion.dir/flags.make
+CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.o: ../src/IFusionInterface.cpp
+CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.o: CMakeFiles/ObjectFusion.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oguz/sensor_data_fusion/sensor_data_fusion/Client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.o -MF CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.o.d -o CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.o -c /home/oguz/sensor_data_fusion/sensor_data_fusion/Client/src/IFusionInterface.cpp
+
+CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oguz/sensor_data_fusion/sensor_data_fusion/Client/src/IFusionInterface.cpp > CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.i
+
+CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oguz/sensor_data_fusion/sensor_data_fusion/Client/src/IFusionInterface.cpp -o CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.s
+
 # Object files for target ObjectFusion
 ObjectFusion_OBJECTS = \
 "CMakeFiles/ObjectFusion.dir/src/main.cpp.o" \
-"CMakeFiles/ObjectFusion.dir/src/JSONFileLogger.cpp.o"
+"CMakeFiles/ObjectFusion.dir/src/JSONFileLogger.cpp.o" \
+"CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.o" \
+"CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.o"
 
 # External object files for target ObjectFusion
 ObjectFusion_EXTERNAL_OBJECTS =
 
 ObjectFusion: CMakeFiles/ObjectFusion.dir/src/main.cpp.o
 ObjectFusion: CMakeFiles/ObjectFusion.dir/src/JSONFileLogger.cpp.o
+ObjectFusion: CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.o
+ObjectFusion: CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.o
 ObjectFusion: CMakeFiles/ObjectFusion.dir/build.make
 ObjectFusion: CMakeFiles/ObjectFusion.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/oguz/sensor_data_fusion/sensor_data_fusion/Client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ObjectFusion"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/oguz/sensor_data_fusion/sensor_data_fusion/Client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ObjectFusion"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ObjectFusion.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

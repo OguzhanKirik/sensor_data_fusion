@@ -40,4 +40,28 @@ protected:
   //JSONFileLogger _logger;    // write the fusion result to file
 };
 
+class Fusion :public IFusionInterface{
+public:
+  Fusion() : _currentObjectId(0)
+  //,_logger(LOG_FILE_NAME) 
+   {}
+  ~Fusion();
+  void doUpdate(const SensorObjectList &sensorObjectList)override;
+
+protected:
+  void createNewObject(const SensorObject &sensorObject)override;
+
+  void predict(const uint64_t timestamp)override;
+
+  bool associate(const SensorObject &sensorObject,
+                         uint8_t &associatedObjectIndex)override;
+  void update(const SensorObject &sensorObject,
+                      const uint8_t associatedObjectIndex)override;
+
+  ObjectList _objectList;  
+  uint16_t _currentObjectId; 
+  //JSONFileLogger _logger;    // write the fusion result to file
+};
+
+
 #endif

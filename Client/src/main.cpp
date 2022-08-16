@@ -24,14 +24,19 @@ int main() {
   // This is the entry point for your solution.
   // Connect to the sensor and track all objects.
   // Have fun!!!
-   Sensor sensor;
+    Sensor sensor;
 
-   bool a = sensor.connectToSensor();
+    bool a = sensor.connectToSensor();
+    SensorObjectList objectList;
+    bool vc = sensor.getNextObjectList(objectList);
+// for (size_t i = 0; i < 5; i++)
+// {
+//       bool b  = sensor.confirmObjectsReceived();
 
-
-  Sensor senr_1;
-
-   bool c = senr_1.connectToSensor();
+//   if (i = 4){
+//     sensor.closeConnection();
+//   }
+// }
 
   //create a socket
   // int client;

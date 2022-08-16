@@ -35,51 +35,21 @@ public:
 
 
 class Sensor : public ISensorInterface{
+  private:
+      int client;
+      static sockaddr_in server_addr;
+      int objectReceived;
   public:
-
-       bool connected = false; 
-
-  public:
-    Sensor(){
-    }
-
-    ~Sensor(){
-      //std::cout << "object destriyed " << std::endl;
-      
-    }
-
+    Sensor();
+    ~Sensor();
     bool connectToSensor(const int port = SENSOR_SERVER_PORT,
-                        const char *ip = SENSOR_SERVER_IP_ADDRESS)override{
-       static int client;
-       static struct sockaddr_in server_addr;
-      client = socket(AF_INET,SOCK_STREAM,0);             
-       if(client < 0){
-         std::cout << "error creating socket" << std::endl;
-       }
-       std::cout << "client socket created"<< std::endl;
-       server_addr.sin_family =AF_INET;
-       server_addr.sin_port = htons(SENSOR_SERVER_PORT); 
+                        const char *ip = SENSOR_SERVER_IP_ADDRESS)override;
+    bool getNextObjectList (SensorObjectList &objectList)override;
+    bool confirmObjectsReceived()override;
+    bool closeConnection()override;
 
-
-
-       if (connect(client,(struct sockaddr *)&server_addr, sizeof(server_addr)) == 0){
-          std::cout << "=> Connection to the server port number: " << SENSOR_SERVER_PORT << std::endl;
-          return true;
-      }else
-        return false;
-    }
-      /// Get the current object list from the sensor
-    bool getNextObjectList (SensorObjectList &objectList)override{
-          return false;
-    }
-    bool confirmObjectsReceived()override{
-          return false;
-    }
-    /// Disconnect from sensor
-    bool closeConnection()override{
-          return false;
-    }
 };
+
 
 
 

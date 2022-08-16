@@ -8,5 +8,15 @@
   "directory": "/home/oguz/sensor_data_fusion/sensor_data_fusion/Client/build",
   "command": "/usr/bin/g++  -I/home/oguz/sensor_data_fusion/sensor_data_fusion/Client/inc -I/home/oguz/sensor_data_fusion/sensor_data_fusion/Client/../inc -g -std=gnu++11 -o CMakeFiles/ObjectFusion.dir/src/JSONFileLogger.cpp.o -c /home/oguz/sensor_data_fusion/sensor_data_fusion/Client/src/JSONFileLogger.cpp",
   "file": "/home/oguz/sensor_data_fusion/sensor_data_fusion/Client/src/JSONFileLogger.cpp"
+},
+{
+  "directory": "/home/oguz/sensor_data_fusion/sensor_data_fusion/Client/build",
+  "command": "/usr/bin/g++  -I/home/oguz/sensor_data_fusion/sensor_data_fusion/Client/inc -I/home/oguz/sensor_data_fusion/sensor_data_fusion/Client/../inc -g -std=gnu++11 -o CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.o -c /home/oguz/sensor_data_fusion/sensor_data_fusion/Client/src/ISensorInterface.cpp",
+  "file": "/home/oguz/sensor_data_fusion/sensor_data_fusion/Client/src/ISensorInterface.cpp"
+},
+{
+  "directory": "/home/oguz/sensor_data_fusion/sensor_data_fusion/Client/build",
+  "command": "/usr/bin/g++  -I/home/oguz/sensor_data_fusion/sensor_data_fusion/Client/inc -I/home/oguz/sensor_data_fusion/sensor_data_fusion/Client/../inc -g -std=gnu++11 -o CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.o -c /home/oguz/sensor_data_fusion/sensor_data_fusion/Client/src/IFusionInterface.cpp",
+  "file": "/home/oguz/sensor_data_fusion/sensor_data_fusion/Client/src/IFusionInterface.cpp"
 }
 ]

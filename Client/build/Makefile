@@ -129,6 +129,54 @@ ObjectFusion/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ObjectFusion.dir/build.make CMakeFiles/ObjectFusion.dir/build
 .PHONY : ObjectFusion/fast
 
+src/IFusionInterface.o: src/IFusionInterface.cpp.o
+.PHONY : src/IFusionInterface.o
+
+# target to build an object file
+src/IFusionInterface.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ObjectFusion.dir/build.make CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.o
+.PHONY : src/IFusionInterface.cpp.o
+
+src/IFusionInterface.i: src/IFusionInterface.cpp.i
+.PHONY : src/IFusionInterface.i
+
+# target to preprocess a source file
+src/IFusionInterface.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ObjectFusion.dir/build.make CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.i
+.PHONY : src/IFusionInterface.cpp.i
+
+src/IFusionInterface.s: src/IFusionInterface.cpp.s
+.PHONY : src/IFusionInterface.s
+
+# target to generate assembly for a file
+src/IFusionInterface.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ObjectFusion.dir/build.make CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.s
+.PHONY : src/IFusionInterface.cpp.s
+
+src/ISensorInterface.o: src/ISensorInterface.cpp.o
+.PHONY : src/ISensorInterface.o
+
+# target to build an object file
+src/ISensorInterface.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ObjectFusion.dir/build.make CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.o
+.PHONY : src/ISensorInterface.cpp.o
+
+src/ISensorInterface.i: src/ISensorInterface.cpp.i
+.PHONY : src/ISensorInterface.i
+
+# target to preprocess a source file
+src/ISensorInterface.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ObjectFusion.dir/build.make CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.i
+.PHONY : src/ISensorInterface.cpp.i
+
+src/ISensorInterface.s: src/ISensorInterface.cpp.s
+.PHONY : src/ISensorInterface.s
+
+# target to generate assembly for a file
+src/ISensorInterface.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ObjectFusion.dir/build.make CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.s
+.PHONY : src/ISensorInterface.cpp.s
+
 src/JSONFileLogger.o: src/JSONFileLogger.cpp.o
 .PHONY : src/JSONFileLogger.o
 
@@ -186,6 +234,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ObjectFusion"
+	@echo "... src/IFusionInterface.o"
+	@echo "... src/IFusionInterface.i"
+	@echo "... src/IFusionInterface.s"
+	@echo "... src/ISensorInterface.o"
+	@echo "... src/ISensorInterface.i"
+	@echo "... src/ISensorInterface.s"
 	@echo "... src/JSONFileLogger.o"
 	@echo "... src/JSONFileLogger.i"
 	@echo "... src/JSONFileLogger.s"

@@ -128,6 +128,7 @@ int main(int argc, char const *argv[]) {
     uint64_t timestamp = 0;
 
     for (int i = 0; i < 100; ++i) {
+      
       moveObjectOnCircle(so1, false, RADIUS1, 400000);
       moveObjectOnCircle(so2, true, RADIUS2, 400000);
 
@@ -137,8 +138,6 @@ int main(int argc, char const *argv[]) {
       sol.timestamp = timestamp;
       sol.objectList[0] = so1;
       sol.objectList[1] = so2;
-
-     
       send(client, (char *)&sol, sizeof(SensorObjectList), 0);
       recv(client, objectsReceivedMsg, OBJECTS_RECEIVED_MSG_SIZE, 0);
     }

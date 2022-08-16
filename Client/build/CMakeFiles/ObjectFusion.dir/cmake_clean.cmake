@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.o"
+  "CMakeFiles/ObjectFusion.dir/src/IFusionInterface.cpp.o.d"
+  "CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.o"
+  "CMakeFiles/ObjectFusion.dir/src/ISensorInterface.cpp.o.d"
   "CMakeFiles/ObjectFusion.dir/src/JSONFileLogger.cpp.o"
   "CMakeFiles/ObjectFusion.dir/src/JSONFileLogger.cpp.o.d"
   "CMakeFiles/ObjectFusion.dir/src/main.cpp.o"

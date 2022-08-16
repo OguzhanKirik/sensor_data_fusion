@@ -9,6 +9,8 @@ target_sources(ObjectFusion PRIVATE
 			${CMAKE_CURRENT_SOURCE_DIR}/src/JSONFileLogger.cpp
 			${CMAKE_CURRENT_SOURCE_DIR}/../inc/Definitions.h
 			${CMAKE_CURRENT_SOURCE_DIR}/inc/ISensorInterface.h
+			${CMAKE_CURRENT_SOURCE_DIR}/src/ISensorInterface.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/src/IFusionInterface.cpp
 			${CMAKE_CURRENT_SOURCE_DIR}/inc/IFusionInterface.h
 			${CMAKE_CURRENT_SOURCE_DIR}/inc/JSONFileLogger.h)
 if(CMAKE_HOST_WIN32)

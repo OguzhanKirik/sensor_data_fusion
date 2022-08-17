@@ -1,7 +1,7 @@
 #ifndef IFUSIONINTERFACE_H_
 #define IFUSIONINTERFACE_H_ IFUSIONINTERFACE_H_
 #include <Eigen/Dense>
-
+#include<iostream>
 #include "JSONFileLogger.h"
 class IFusionInterface {
 public:
@@ -47,11 +47,27 @@ public:
   //,_logger(LOG_FILE_NAME) 
    {
 
-   F << 1.0,0.0,0.4,0.0,
-        0.0,1.0,0.4,0.0,
-        0.0,0.0,1.0,0.0,
-        0.0,0.0,0.0,1.0;
+   F << 1.0f,0.0f,0.4f,0.0f,
+        0.0f,1.0f,0.0f,0.4f,
+        0.0f,0.0f,1.0f,0.0f,
+        0.0f,0.0f,0.0f,1.0f;
 
+    R << Rxx,0.0f,0.0f,0.0f,
+          0.0f,Ryy,0.0f,0.0f,
+          0.0f,0.0f,Rvxvx,0.0f,
+          0.0f,0.0f,0.0f,Rvyvy;
+
+    Q << Qxx,0.0f,0.0f,0.0f,
+          0.0f,Qyy,0.0f,0.0f,
+          0.0f,0.0f,Qvxvx,0.0f,
+          0.0f,0.0f,0.0f,Qvyvy;
+
+    //initialize error covariance 
+    
+    P << Rxx,0.0f,0.0f,0.0f,
+          0.0f,Ryy,0.0f,0.0f,
+          0.0f,0.0f,Rvxvx,0.0f,
+          0.0f,0.0f,0.0f,Rvyvy;
    }
   ~Fusion();
   void doUpdate(const SensorObjectList &sensorObjectList)override;
@@ -68,7 +84,11 @@ protected:
 
   ObjectList _objectList;  
   uint16_t _currentObjectId; 
-  Eigen::Matrix4d F;
+  Eigen::Matrix<double,4,4>  F; // state transition
+    Eigen::Matrix<double,4,4>  P;
+     Eigen::Matrix<double,4,4>  Q;
+    Eigen::Matrix<double,4,4>  R;
+
   //JSONFileLogger _logger;    // write the fusion result to file
 };
 

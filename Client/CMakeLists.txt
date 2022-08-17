@@ -4,6 +4,8 @@ set (CMAKE_CXX_STANDARD 11)
 # Add source to this project's executable.
 add_executable (ObjectFusion)
 target_include_directories(ObjectFusion PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inc ${CMAKE_CURRENT_SOURCE_DIR}/../inc)
+find_package(Eigen3 REQUIRED)
+include_directories(${EIGEN3_INCLUDE_DIR})
 target_sources(ObjectFusion PRIVATE
 			${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
 			${CMAKE_CURRENT_SOURCE_DIR}/src/JSONFileLogger.cpp

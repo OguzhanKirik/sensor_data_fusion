@@ -29,10 +29,8 @@ int main() {
     bool a = sensor.connectToSensor();
     SensorObjectList objectList;
     bool vc = sensor.getNextObjectList(objectList);
-    std::cout << objectList.numOfValidObjects << std::endl;
     
     //objectList.objectList->vx
-    std::cout << objectList.objectList->vx << std::endl;
     Fusion f;
     f.doUpdate(objectList);
 

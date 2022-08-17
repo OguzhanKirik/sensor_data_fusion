@@ -1,5 +1,6 @@
 #ifndef IFUSIONINTERFACE_H_
 #define IFUSIONINTERFACE_H_ IFUSIONINTERFACE_H_
+#include <Eigen/Dense>
 
 #include "JSONFileLogger.h"
 class IFusionInterface {
@@ -44,7 +45,14 @@ class Fusion :public IFusionInterface{
 public:
   Fusion() : _currentObjectId(0)
   //,_logger(LOG_FILE_NAME) 
-   {}
+   {
+
+   F << 1.0,0.0,0.4,0.0,
+        0.0,1.0,0.4,0.0,
+        0.0,0.0,1.0,0.0,
+        0.0,0.0,0.0,1.0;
+
+   }
   ~Fusion();
   void doUpdate(const SensorObjectList &sensorObjectList)override;
 
@@ -60,6 +68,7 @@ protected:
 
   ObjectList _objectList;  
   uint16_t _currentObjectId; 
+  Eigen::Matrix4d F;
   //JSONFileLogger _logger;    // write the fusion result to file
 };
 

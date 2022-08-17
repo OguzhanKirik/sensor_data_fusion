@@ -38,8 +38,8 @@ class Sensor : public ISensorInterface{
   private:
       int client;
       static sockaddr_in server_addr;
-      int objectReceived;
-      
+      int objectReceived;  
+      bool stop_connection;    
   public:
     Sensor();
     ~Sensor();

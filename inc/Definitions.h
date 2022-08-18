@@ -3,7 +3,7 @@
 
 #include <cstdint>
 
-//#define LOG_FILE_NAME "OFLogFile.json"
+#define LOG_FILE_NAME "/home/oguz/sensor_data_fusion/sensor_data_fusion/OFLogFile.json"
 #define SENSOR_SERVER_PORT 5555
 #define SENSOR_SERVER_IP_ADDRESS "127.0.0.1"
 

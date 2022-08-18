@@ -6,7 +6,7 @@
 class IFusionInterface {
 public:
   IFusionInterface() : _currentObjectId(0)
-  //,_logger(LOG_FILE_NAME) 
+  ,_logger(LOG_FILE_NAME) 
    {}
 
   // Do the whole magic here, i.e.,
@@ -38,15 +38,18 @@ protected:
 
   ObjectList _objectList;    // object database
   uint16_t _currentObjectId; // use this one to create new object id's
-  //JSONFileLogger _logger;    // write the fusion result to file
+  JSONFileLogger _logger;    // write the fusion result to file
 };
 
 class Fusion :public IFusionInterface{
 public:
   Fusion() : _currentObjectId(0)
-  //,_logger(LOG_FILE_NAME) 
+  ,_logger(LOG_FILE_NAME) 
    {
+    //Initialize the logger
+    _logger.init();
 
+    //initiliaze
    F << 1.0f,0.0f,0.4f,0.0f,
         0.0f,1.0f,0.0f,0.4f,
         0.0f,0.0f,1.0f,0.0f,
@@ -62,8 +65,14 @@ public:
           0.0f,0.0f,Qvxvx,0.0f,
           0.0f,0.0f,0.0f,Qvyvy;
 
-    //initialize error covariance 
+    H <<  1.0f,0.0f,0.0f,0.0f,
+          0.0f,1.0f,0.0f,0.0f,
+           0.0f,0.0f,1.0f,0.0f,
+           1.0f,0.0f,0.0f,1.0f;  
     
+    I.setIdentity();
+
+    //initialize error covariance 
     P << Rxx,0.0f,0.0f,0.0f,
           0.0f,Ryy,0.0f,0.0f,
           0.0f,0.0f,Rvxvx,0.0f,
@@ -85,11 +94,14 @@ protected:
   ObjectList _objectList;  
   uint16_t _currentObjectId; 
   Eigen::Matrix<double,4,4>  F; // state transition
-    Eigen::Matrix<double,4,4>  P;
-     Eigen::Matrix<double,4,4>  Q;
-    Eigen::Matrix<double,4,4>  R;
-
-  //JSONFileLogger _logger;    // write the fusion result to file
+  Eigen::Matrix<double,4,4>  P; //Estimate error covariance
+  Eigen::Matrix<double,4,4>  Q; // process noise covariance
+  Eigen::Matrix<double,4,4>  R; // measurement  covariance
+  Eigen::Matrix<double,4,4>  K; // Kalman Gain
+  Eigen::Matrix<double,4,4>  I; // Identity Matrix
+  Eigen::Matrix<double,4,4>  H; // state-to-measurement matrix
+  Eigen::Matrix<double,4,1> x_hat; // predicted 
+  JSONFileLogger _logger;    // write the fusion result to file
 };
 
 

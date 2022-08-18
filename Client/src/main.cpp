@@ -25,14 +25,20 @@ int main() {
   // Connect to the sensor and track all objects.
   // Have fun!!!
     Sensor sensor;
+    Fusion fusion;
 
-    bool a = sensor.connectToSensor();
-    SensorObjectList objectList;
-    bool vc = sensor.getNextObjectList(objectList);
-    
-    //objectList.objectList->vx
-    Fusion f;
-    f.doUpdate(objectList);
+  if(sensor.connectToSensor()){
+    for (size_t i = 0; i < 100; i++){
+        SensorObjectList objectList;
+        if(sensor.getNextObjectList(objectList)){
+          if(sensor.confirmObjectsReceived()){
+             fusion.doUpdate(objectList);    
+          }
+        }
+    }
+  }
+
+    sensor.closeConnection();
 
   return 0;
 }

@@ -24,7 +24,6 @@
          server_addr.sin_port = htons(SENSOR_SERVER_PORT); 
         if (connect(client,(struct sockaddr *)&server_addr, sizeof(server_addr)) == 0){
             std::cout << "=> Connection to the server port number: " << SENSOR_SERVER_PORT << std::endl;
-           stop_connection = true;    
             
             return true;
         }else
@@ -32,28 +31,21 @@
     }
       /// Get the current object list from the sensor
     bool Sensor::getNextObjectList (SensorObjectList &objectList){
-          //do{
-          //char objectsReceivedMsg[2*OBJECTS_RECEIVED_MSG_SIZE];
-          this->objectReceived = recv(client, (char *)&objectList, sizeof(SensorObjectList), 0);
-          // read time stamps and valid objects from the objectReceivedMsg
-          
-           for (size_t i = 0; i < objectList.numOfValidObjects; i++){
-             std::cout << objectList.objectList[i].vx << std::endl;
-           }
-          //}while(this->stop_connection == true) ;
-
+          this->objectReceived = recv(client, (char *)&objectList, sizeof(SensorObjectList), 0);        
           return true;
     }
     bool Sensor::confirmObjectsReceived(){
-        if (this->objectReceived == -1)
-          return false;
-        else 
-          return true;
 
+        if (this->objectReceived == -1){
+          return false;
+        }else{ 
+          char objectsReceivedMsg[OBJECTS_RECEIVED_MSG_SIZE];
+          send(client, objectsReceivedMsg, OBJECTS_RECEIVED_MSG_SIZE, 0);
+          return true;
+        }
     }
     /// Disconnect from sensor
     bool Sensor::closeConnection(){
-          this->stop_connection = true;
           close(client);
           return true;
     }

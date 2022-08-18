@@ -5,22 +5,40 @@
   Fusion::~Fusion(){};
   
   void Fusion::doUpdate(const SensorObjectList &sensorObjectList){
-    //std::cout <<"valid objects"  << sensorObjectList.numOfValidObjects <<  std::endl;
-    //std::cout <<"time stamp objects"  << sensorObjectList.timestamp <<  std::endl;
+    _logger.openNewFusionCycleArray();
+    _logger.addSensorObjectList(sensorObjectList);
+    uint8_t associatedObjectIndex;
+    if(_objectList.numOfValidObjects ==0){
+      associatedObjectIndex = -1;
 
-    for (size_t i = 0; i < sensorObjectList.numOfValidObjects; i++){
-        createNewObject(sensorObjectList.objectList[i]);
+      for (size_t i = 0; i < sensorObjectList.numOfValidObjects; i++){
+          createNewObject(sensorObjectList.objectList[i]);
+      }
+      predict(sensorObjectList.timestamp);
+
+
+    }else{
+      associatedObjectIndex =0;
+      for (size_t i = 0; i < sensorObjectList.numOfValidObjects; i++){
+          associate(sensorObjectList.objectList[i],associatedObjectIndex);
+          update(sensorObjectList.objectList[i],associatedObjectIndex);
+          createNewObject(sensorObjectList.objectList[i]);
+
+          associatedObjectIndex++;
+      }
+      predict(sensorObjectList.timestamp);
     }
-    predict(sensorObjectList.timestamp);
+    _currentObjectId = 0;
 }
 
   void Fusion::createNewObject(const SensorObject &sensorObject){
-
+        
         _objectList.objects[_currentObjectId].objectId = _currentObjectId;
         _objectList.objects[_currentObjectId].x = sensorObject.x; // position x
         _objectList.objects[_currentObjectId].y = sensorObject.y; // positoin y
         _objectList.objects[_currentObjectId].vx = sensorObject.vx; // velocity x
-        _objectList.objects[_currentObjectId].vy = sensorObject.vy; // velocity y
+        _objectList.objects[_currentObjectId].vy = sensorObject.vy;
+        _objectList.numOfValidObjects = _currentObjectId+1;
         // _objectList.objects[_currentObjectId].Pxx = Qxx; // variance of x position
         // _objectList.objects[_currentObjectId].Pyy = Qyy; // variance of y position
         // _objectList.objects[_currentObjectId].Pvxvx = Rvxvx ;// variance of x velocity
@@ -34,39 +52,44 @@
   void Fusion::predict(const uint64_t timestamp){
       //     x_k_pred = F*x_{k-1} + B*u_{k-1} --> no control input
       // Predict state estimate
-        Eigen::Matrix<double,4,1> x_hat; // predicted 
         Eigen::Matrix<double,4,1> x{
                             {_objectList.objects->x},
                             {_objectList.objects->y},
                             {_objectList.objects->vx},
                             {_objectList.objects->vy}};
-        std::cout <<"show " << x.matrix() << std::endl;
         x_hat = F * x;
-        std::cout <<"show " << x_hat.matrix() << std::endl;
-        // Predict error covariance (error in the estimate, state convariance matrix)
-        // P --> state convariance matrix
-        // Q --> process noise convariance matrix (keeps the state convariance matrix from becoming too small)
-        // R --> Measurement convariance matrix (error in the measurement)
-        // K --> Kalman gain (weight factor based on the comparing the error in the estimate
-        // to the error in the measurement)
-
-        //Eigen::Matrix<double,4,4> P_hat;
-
         P = F * P * F.transpose() + Q;
 
-        std::cout <<"phat " << P.matrix() << std::endl;
+         _logger.addObjectList(_objectList,"PredictedObjectList");
 
-
-
+         
 }
 
   bool Fusion::associate(const SensorObject &sensorObject,
                          uint8_t &associatedObjectIndex){
-              
-                                    return true;
+      //_logger.addAssociationIndices;
+      return true;
 }
 
   void Fusion::update(const SensorObject &sensorObject,
                       const uint8_t associatedObjectIndex){
+        Eigen::Matrix<double,4,1> x_k; // estimated
+        Eigen::Matrix<double,4,4> P_k; // covariance
+        Eigen::Matrix<double,4,1> z; //measurement   
+
+
+        // Measurement residuals
+        Eigen::Matrix<double,4,1> y; 
+        y = z - H * x_hat;
+
+        //  // Kalman Gain                   
+        K = (P*H.transpose()) * ((R + H*P*H.transpose() + R)).inverse();
+        // Updated state estimate
+        x_k = x_hat + K * y;
+        // Updated error covariance
+        P_k = (I - K*H)*P;   
+
+         _logger.addObjectList(_objectList,"UpdatedObjectList");    
+       
 
 }

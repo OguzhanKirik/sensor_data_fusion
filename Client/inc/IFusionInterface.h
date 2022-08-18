@@ -73,10 +73,14 @@ public:
     I.setIdentity();
 
     //initialize error covariance 
-    P << Rxx,0.0f,0.0f,0.0f,
-          0.0f,Ryy,0.0f,0.0f,
-          0.0f,0.0f,Rvxvx,0.0f,
-          0.0f,0.0f,0.0f,Rvyvy;
+    // P << Rxx,0.0f,0.0f,0.0f,
+    //       0.0f,Ryy,0.0f,0.0f,
+    //       0.0f,0.0f,Rvxvx,0.0f,
+    //       0.0f,0.0f,0.0f,Rvyvy;
+     P << 5.0f,0.0f,5.0f,0.0f,
+           0.0f,5.0f,0.0f,5.0f,
+           0.0f,0.0f,5.0f,0.0f,
+           0.0f,0.0f,0.0f,5.0f;
    }
   ~Fusion();
   void doUpdate(const SensorObjectList &sensorObjectList)override;
@@ -93,14 +97,14 @@ protected:
 
   ObjectList _objectList;  
   uint16_t _currentObjectId; 
-  Eigen::Matrix<double,4,4>  F; // state transition
-  Eigen::Matrix<double,4,4>  P; //Estimate error covariance
-  Eigen::Matrix<double,4,4>  Q; // process noise covariance
-  Eigen::Matrix<double,4,4>  R; // measurement  covariance
-  Eigen::Matrix<double,4,4>  K; // Kalman Gain
-  Eigen::Matrix<double,4,4>  I; // Identity Matrix
-  Eigen::Matrix<double,4,4>  H; // state-to-measurement matrix
-  Eigen::Matrix<double,4,1> x_hat; // predicted 
+  Eigen::Matrix<float,4,4>  F; // state transition
+  Eigen::Matrix<float,4,4>  P; //Estimate error covariance
+  Eigen::Matrix<float,4,4>  Q; // process noise covariance
+  Eigen::Matrix<float,4,4>  R; // measurement  covariance
+  Eigen::Matrix<float,4,4>  K; // Kalman Gain
+  Eigen::Matrix<float,4,4>  I; // Identity Matrix
+  Eigen::Matrix<float,4,4>  H; // state-to-measurement matrix
+  std::vector<std::pair<int,int>> associatedObjects;
   JSONFileLogger _logger;    // write the fusion result to file
 };
 

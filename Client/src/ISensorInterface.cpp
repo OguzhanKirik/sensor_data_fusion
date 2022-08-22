@@ -3,13 +3,10 @@
 #include <iostream>
 
     Sensor::Sensor(){
-      std::cout << "constructed" << std::endl;
-      client = socket(AF_INET,SOCK_STREAM,0);               
-    }
+      client = socket(AF_INET,SOCK_STREAM,0); 
+      }
 
-    Sensor::~Sensor(){
-      std::cout << "object destriyed " << std::endl;
-     
+    Sensor::~Sensor(){     
     }
 
      sockaddr_in Sensor::server_addr;
@@ -32,6 +29,8 @@
       /// Get the current object list from the sensor
     bool Sensor::getNextObjectList (SensorObjectList &objectList){
           this->objectReceived = recv(client, (char *)&objectList, sizeof(SensorObjectList), 0);        
+          std::cout << "object received " << std::endl;
+
           return true;
     }
     bool Sensor::confirmObjectsReceived(){

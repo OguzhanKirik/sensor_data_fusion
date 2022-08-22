@@ -28,7 +28,7 @@ int main() {
     Fusion fusion;
 
   if(sensor.connectToSensor()){
-    for (size_t i = 0; i < 4; i++){
+    for (size_t i = 0; i < 100; i++){
         SensorObjectList objectList;
         if(sensor.getNextObjectList(objectList)){
           if(sensor.confirmObjectsReceived()){

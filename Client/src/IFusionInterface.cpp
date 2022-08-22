@@ -7,9 +7,10 @@
   };
   
   void Fusion::doUpdate(const SensorObjectList &sensorObjectList){
+
     _logger.openNewFusionCycleArray(); // start logger cycle
     _logger.addSensorObjectList(sensorObjectList); // add new coming sensor objects
-   uint8_t associatedObjectIndex = 0;
+    uint8_t associatedObjectIndex = 0;
 
     if(_objectList.numOfValidObjects ==0){
 
@@ -41,6 +42,7 @@
 
       _logger.addAssociationIndices(associatedObjects);
       _logger.addObjectList(_objectList,"UpdatedObjectList");    
+      std::cout << " updated " << std::endl;
 
     }
     _currentObjectId = 0;
@@ -85,6 +87,8 @@
         _objectList.objects[i].Pyvy = P_hat.coeff(1,3); // covariance of x postion and velocity
         
       }
+      std::cout << " Predicted " << std::endl;
+
       P = P_hat;
       
     
@@ -103,11 +107,16 @@
 
   void Fusion::update(const SensorObject &sensorObject,
                       const uint8_t associatedObjectIndex){
-        Eigen::Matrix<float,4,1> x_k; // estimated
-        Eigen::Matrix<float,4,4> P_k; // covariance
-        Eigen::Matrix<float,4,1> z; //measurement   
+        Eigen::Matrix<float,4,1> x_k; // estimated state
+        Eigen::Matrix<float,4,4> P_k; // covariance state
         Eigen::Matrix<float,4,1> y; // Measurement residuals 
         Eigen::Matrix<float,4,4>  P_hat; //Estimate error covariance
+Eigen::Matrix<float,4,1> z {
+                            {sensorObject.x},
+                            {sensorObject.y},
+                            {sensorObject.vx},
+                            {sensorObject.vy}};  
+
       // estimated state vector
       Eigen::Matrix<float,4,1> x_hat{
                             {_objectList.objects[associatedObjectIndex].x},
@@ -142,5 +151,4 @@
         _objectList.objects[associatedObjectIndex].Pyvy = P_k.coeff(1,3); // covariance 
 
        
-
 }

@@ -77,10 +77,10 @@ public:
     //       0.0f,Ryy,0.0f,0.0f,
     //       0.0f,0.0f,Rvxvx,0.0f,
     //       0.0f,0.0f,0.0f,Rvyvy;
-     P << 5.0f,0.0f,5.0f,0.0f,
-           0.0f,5.0f,0.0f,5.0f,
-           0.0f,0.0f,5.0f,0.0f,
-           0.0f,0.0f,0.0f,5.0f;
+     P << 4.0f,0.0f,4.0f,0.0f,
+           0.0f,4.0f,0.0f,4.0f,
+           0.0f,0.0f,4.0f,0.0f,
+           0.0f,0.0f,0.0f,4.0f;
    }
   ~Fusion();
   void doUpdate(const SensorObjectList &sensorObjectList)override;
